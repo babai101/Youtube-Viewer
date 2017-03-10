@@ -26,6 +26,6 @@ app.use(passport.session());
 
 routes(app, passport);
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 8080, function() {
     console.log("server started successfully");
 });
