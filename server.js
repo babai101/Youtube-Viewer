@@ -15,7 +15,7 @@ app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/node_modules', express.static(process.cwd() + '/node_modules'));
 
 app.use(session({
-	secret: 'secretYoutubeViewer',
+	secret: process.env.SESSION_SECRET,
 	store: new FileStore(),
 	resave: false,
 	saveUninitialized: true
