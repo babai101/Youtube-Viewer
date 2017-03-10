@@ -1,0 +1,16 @@
+<div class="view">
+    <div class="container col-sm-4 col-sm-offset-4 loginBox">
+        <form novalidate>
+            <h2 class="text-center">Login with Credentials</h2>
+            <h5>User Name</h5>
+            <input type="text" class="form-control" placeholder="UserName" ng-model="username" required>
+            <h5>Password</h5>
+            <input type="password" class="form-control" placeholder="password" ng-model="password" required ng-keyup="keyPress($event.keyCode)">
+            <br>
+            <div ng-click="login()" class="btn btn-default">
+                Login
+            </div>
+            <a href="/#!/" class="btn btn-default">Cancel</a>
+        </form>
+    </div>
+</div>

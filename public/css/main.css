@@ -1,0 +1,141 @@
+h1 {
+    font-family: 'Lobster'
+}
+
+h2 {
+    font-family: 'Roboto'
+}
+
+body {
+    margin-bottom: 50px;
+    /*background-color: #F7A0A2;*/
+}
+
+hr {
+    background-color: #e52d27;
+}
+
+a.textItem {
+    color: white;
+}
+
+a.textItem:visited {
+    color: #e52d27;
+}
+
+a.textItem:hover {
+    color: white;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.jumbotron {
+    /*background-color: #e52d27;*/
+    background-color: #F04349;
+    color: white;
+}
+
+.resultsRow {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #F04349;
+    border: 2px;
+    border-color: #e52d27;
+    border-radius: 5px;
+    color: white;
+}
+
+.loginBox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #F04349;
+    border: 2px;
+    border-color: #e52d27;
+    border-radius: 5px;
+    color: white;
+}
+
+.videoInfo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    background-color: #F04349;
+    border: 2px;
+    border-color: #e52d27;
+    border-radius: 5px;
+    color: white;
+}
+
+.double-border {
+    margin-top: -30px;
+    margin-right: 20px;
+    border-style: none;
+}
+
+.double-border>a {
+    color: #F04349;
+}
+
+.double-border>a:hover {
+    color: white;
+}
+
+.btn-default {
+    border-color: #e52d27;
+    color: #e52d27;
+}
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus,
+.btn-default.active,
+.btn-default.active:focus {
+    background-color: #e52d27;
+    border-style: none;
+    color: white;
+}
+
+
+/*.btn-default:active {*/
+
+
+/*    background-color: #e52d27;*/
+
+
+/*    border-style: none;*/
+
+
+/*    color: white;*/
+
+
+/*}*/
+
+.double-border:hover {
+    background-color: #e52d27;
+    border-style: none;
+    color: white;
+}
+
+.form-control {
+    border-color: #e52d27;
+}
+
+.form-control:focus {
+    border-color: #e52d27;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(179, 18, 23, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(179, 18, 23, 0.6);
+}

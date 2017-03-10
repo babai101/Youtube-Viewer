@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="youtubeApp">
+
+<head>
+    <title>Youtube Viewer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto+Slab" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div ng-view></div>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.6.1/angular-resource.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.6.1/angular-route.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.6.1/angular-sanitize.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/clientController.js"></script>
+    <script type="text/javascript" src="app/services/userService.js"></script>
+    <script type="text/javascript" src="node_modules/angular-youtube-api-factory/dist/angular-youtube-api-factory.min.js"></script>
+    <script type="text/javascript" src="node_modules/videogular/videogular.js"></script>
+    <script type="text/javascript" src="node_modules/videogular-controls/vg-controls.js"></script>
+    <script type="text/javascript" src="node_modules/videogular-buffering/vg-buffering.js"></script>
+    
+</body>
+
+</html>

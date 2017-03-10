@@ -1,0 +1,43 @@
+<div class="view">
+    <div class="row">
+        <div class="jumbotron">
+            <div class="container-fluid">
+                <div class="col-md-8 col-md-offset-2">
+                    <videogular vg-theme="config.theme">
+                        <vg-media vg-src="config.sources">
+                        </vg-media>
+                        <vg-controls>
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                            <vg-volume>
+                                <vg-mute-button></vg-mute-button>
+                                <vg-volume-bar></vg-volume-bar>
+                            </vg-volume>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
+                    </videogular>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row videoInfo">
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>{{video.title}}</h4>
+            </div>
+            <div class="col-sm-3 col-sm-offset-1">
+                <h4>Views: {{video.views}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-9">
+                <i class="fa fa-thumbs-o-up fa-lg"></i> {{video.likes }}
+                <i style="padding-left: 5px;" class="fa fa-thumbs-o-down fa-lg"></i> {{video.dislikes}}
+            </div>
+        </div>
+    </div>
+</div>
