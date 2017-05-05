@@ -3,7 +3,7 @@
         <div class="jumbotron">
             <div class="container-fluid">
                 <div class="col-md-8 col-md-offset-2">
-                    <videogular vg-theme="config.theme">
+                    <videogular vg-player-ready="onPlayerReady($API)" vg-update-state="stateChange($state)" vg-theme="config.theme">
                         <vg-media vg-src="config.sources">
                         </vg-media>
                         <vg-controls>

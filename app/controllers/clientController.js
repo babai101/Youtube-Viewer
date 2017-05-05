@@ -6,27 +6,14 @@ app.controller('homeController', function($scope, $resource, $location, youtubeF
     $scope.prevPageToken = null;
     $scope.btnStatus = 'disabled';
     $scope.pageBtns = true;
-    var authApi = $resource('/auth/isLoggedIn');
-    $scope.isAuthenticated = function() {
-        authApi.get({}, function(user) {
-            if (!user.username) {
-                $location.path('/');
-            }
-        }, function(err) {
-            if (err) {
-                $location.path('/');
-            }
-        });
-    };
+   
 
-    $scope.isAuthenticated();
-    
     $scope.keyPress = function(keyCode) {
-        if(keyCode == 13) {
+        if (keyCode == 13) {
             $scope.searchClicked();
         }
     };
-    
+
     $scope.searchClicked = function() {
         youtubeFactory.getVideosFromSearchByParams({
             q: $scope.videoDesc,
@@ -83,20 +70,16 @@ app.controller('homeController', function($scope, $resource, $location, youtubeF
 app.controller('viewController', function($scope, $sce, $routeParams, $resource, $location, youtubeFactory, userService) {
     $scope.video = {};
     $scope.videoId = $routeParams.id;
-    var authApi = $resource('/auth/isLoggedIn');
-    $scope.isAuthenticated = function() {
-        authApi.get({}, function(user) {
-            if (!user.username) {
-                $location.path('/');
-            }
-        }, function(err) {
-            if (err) {
-                $location.path('/');
-            }
-        });
+   
+    $scope.onPlayerReady = function(API) {
+        $scope.API = API;
     };
     
-    $scope.isAuthenticated();
+    $scope.stateChange = function($state) {
+        console.log("state changed!");
+        // setTimeout(600);
+    };
+    
     $scope.config = {
         sources: [{
             // src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"),
@@ -127,13 +110,13 @@ app.controller('viewController', function($scope, $sce, $routeParams, $resource,
 
 app.controller('loginController', function($scope, $resource, $location, userService) {
     var localAuth = $resource('/auth/login');
-    
+
     $scope.keyPress = function(keyCode) {
-        if(keyCode == 13) {
+        if (keyCode == 13) {
             $scope.login();
         }
     };
-    
+
     $scope.login = function() {
         var postAuth = new localAuth();
         postAuth.$save({
