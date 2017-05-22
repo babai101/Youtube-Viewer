@@ -83,8 +83,8 @@ app.controller('viewController', function($scope, $sce, $routeParams, $resource,
     $scope.config = {
         sources: [{
             // src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"),
-            src: "/video/?id=" + $scope.videoId,
-            type: "video/mp4"
+            src: $sce.trustAsResourceUrl("/video/?id=" + $scope.videoId),
+            type: "video/webm"
         }],
         theme: "node_modules/videogular-themes-default/videogular.css"
     };

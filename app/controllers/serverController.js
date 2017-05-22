@@ -13,7 +13,7 @@ function serverFunctions() {
             //If the stream is compatable with the video type,
             //we return a function that can stream the video to the client.
             //Note: we **DO NOT** stream HD videos to save bandwidth.
-            if (String(stream.type).indexOf(query.type) > -1 &&
+            if (String(stream.type).indexOf(query.type) > -1 /*&&
                 (
                     //stream regular quality videos
                     (
@@ -21,7 +21,7 @@ function serverFunctions() {
                         stream.quality == "medium" ||
                         stream.quality == "small"
                     )
-                )
+                )*/
             ) {
                 return function(res) {
                     //Pipe the stream out

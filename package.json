@@ -19,7 +19,7 @@
     "querystring": "^0.2.0",
     "request": "^2.80.0",
     "session-file-store": "^1.0.0",
-    "videogular": "^1.4.4",
+    "videogular": "^2.1.0",
     "videogular-buffering": "^1.4.4",
     "videogular-controls": "^1.4.4",
     "videogular-themes-default": "^1.4.4",
