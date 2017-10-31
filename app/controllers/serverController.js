@@ -1,6 +1,7 @@
 var url = require('url');
 var request = require('request');
 var qs = require('querystring');
+var youtubedl = require('youtube-dl');
 
 function serverFunctions() {
     var stream = function(query, data) {
@@ -13,19 +14,30 @@ function serverFunctions() {
             //If the stream is compatable with the video type,
             //we return a function that can stream the video to the client.
             //Note: we **DO NOT** stream HD videos to save bandwidth.
-            if (String(stream.type).indexOf(query.type) > -1 /*&&
-                (
-                    //stream regular quality videos
-                    (
-                        stream.quality == "large" ||
-                        stream.quality == "medium" ||
-                        stream.quality == "small"
-                    )
-                )*/
+            if (String(stream.type).indexOf(query.type) > -1
+                /*&&
+                               (
+                                   //stream regular quality videos
+                                   (
+                                       stream.quality == "large" ||
+                                       stream.quality == "medium" ||
+                                       stream.quality == "small"
+                                   )
+                               )*/
             ) {
                 return function(res) {
                     //Pipe the stream out
-                    request(stream.url + '&signature=' + (stream.sig || stream.s)).pipe(res);
+                    var options = {
+                        url: stream.url + '&signature=' + (stream.sig || stream.s),
+                        headers: {
+                            'Referer': 'https://www.youtube.com',
+                            'origin': 'https://www.youtube.com'
+                        }
+                    };
+                    request(options).pipe(res);
+                    // request(options, function(error, response) {
+                    //     console.log(response);
+                    // });
                 };
             }
         }
@@ -40,8 +52,15 @@ function serverFunctions() {
     this.getVideo = function(req, res) {
         var data = url.parse(req.url, true).query;
         data.type = data.type || 'video/mp4';
+        var options = {
+            url: 'http://www.youtube.com/get_video_info?video_id=' + data.id,
+            headers: {
+                'Referer': 'https://www.youtube.com',
+                'origin': 'https://www.youtube.com'
+            }
+        };
         // request('http://www.youtube.com/get_video_info?video_id=' + 'XzSSidHU54g', function(err, d_res, d_content) {
-        request('http://www.youtube.com/get_video_info?video_id=' + data.id, function(err, d_res, d_content) {
+        request(options, function(err, d_res, d_content) {
             // Check if there's any error
             if (!err && d_res.statusCode === 200) {
                 // No error happened.
@@ -66,6 +85,30 @@ function serverFunctions() {
                 res.end();
             }
         });
+    };
+    
+    this.getYoutubeDLVideo = function(req, res) {
+        var data = url.parse(req.url, true).query;
+        data.type = data.type || 'video/mp4';
+        // var options = {
+        //     url: 'http://www.youtube.com/get_video_info?video_id=' + data.id,
+        //     headers: {
+        //         'Referer': 'https://www.youtube.com',
+        //         'origin': 'https://www.youtube.com'
+        //     }
+        // };
+        var video = youtubedl('https://www.youtube.com/watch?v=' + data.id, ['--format=18'], {});
+        video.on('info', function(info) {
+           console.log("download started") ;
+        });
+        
+        video.on('error', function error (err) {
+           console.log("error occured: " + err); 
+        });
+        video.pipe(res);
+        return function(res) {
+            res.end("some error occured");
+        };
     };
 }
 

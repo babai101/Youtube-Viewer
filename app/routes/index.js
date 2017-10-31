@@ -19,7 +19,8 @@ module.exports = function(app, passport) {
             res.sendFile(path + '/public/index.html');
         });
     app.route('/video')
-        .get(isLoggedIn, serverFunctions.getVideo);
+        //.get(isLoggedIn, serverFunctions.getVideo);
+        .get(isLoggedIn, serverFunctions.getYoutubeDLVideo);
 
     app.route('/auth/isLoggedIn')
         .get(function(req, res) {
@@ -42,6 +43,12 @@ module.exports = function(app, passport) {
     app.route('/auth/logout')
         .get(function(req, res) {
             req.logout();
+            res.redirect('/');
+        });
+        
+    app.route('*')
+        .get(function(req, res) {
+            console.log("nothing found");
             res.redirect('/');
         });
 };
