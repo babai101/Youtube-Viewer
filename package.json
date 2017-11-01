@@ -22,6 +22,7 @@
     "videogular": "^2.1.0",
     "videogular-buffering": "^1.4.4",
     "videogular-controls": "^1.4.4",
+    "videogular-overlay-play": "^1.4.4",
     "videogular-themes-default": "^1.4.4",
     "youtube-dl": "^1.11.1"
   }
