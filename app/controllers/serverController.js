@@ -97,7 +97,8 @@ function serverFunctions() {
         //         'origin': 'https://www.youtube.com'
         //     }
         // };
-        var video = youtubedl('https://www.youtube.com/watch?v=' + data.id, ['--format=18'], {});
+        // var video = youtubedl('https://www.youtube.com/watch?v=' + data.id, ['--format=18'], {});
+        var video = youtubedl('https://www.youtube.com/watch?v=' + data.id, ['--format=22'], {});
         video.on('info', function(info) {
            console.log("download started") ;
         });
